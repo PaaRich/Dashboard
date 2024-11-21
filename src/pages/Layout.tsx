@@ -11,7 +11,7 @@ const Layout = () => {
 
       <div className="basis-4/5">
         <Navbar />
-        <div className="overflow-auto bg-[#bbbbf557] ">
+        <div className="overflow-auto bg-[#cdcdf454] ">
           <div className="max-w-[95%] mx-auto">
             <Outlet />
           </div>
