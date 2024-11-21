@@ -1,6 +1,7 @@
 import { NavbarWrapper } from "../styles/Navbar.styled";
 import { IoSearchOutline } from "react-icons/io5";
 import ThemeToggle from "./ThemeToggle";
+import ProfileImg from "../assets/ProfileImg.jpeg";
 
 const Navbar = () => {
   return (
@@ -10,8 +11,8 @@ const Navbar = () => {
           <p className="font-semibold text-xl">Dashboard</p>
           <p className="text-slate-500">date</p>
         </div>
-        <div>
-          <form>
+        <div className="flex items-center">
+          <form className="mr-4">
             <span className="px-4 py-2 rounded-3xl w-60 bg-white flex items-center">
               <IoSearchOutline size={25} />
               <input
@@ -22,7 +23,15 @@ const Navbar = () => {
             </span>
           </form>
           <ThemeToggle />
-          <div></div>
+          <div className="p-2 rounded-full bg-slate-100 mr-4">@</div>
+          <div className="flex items-center mr-4">
+            <img
+              className="w-10 rounded-full mr-1"
+              src={ProfileImg}
+              alt="img"
+            />
+            Name
+          </div>
         </div>
       </div>
     </NavbarWrapper>
