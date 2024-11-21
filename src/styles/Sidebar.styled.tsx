@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const SidebarWrapper = styled.div`
   height: 100dvh;
-  background-color: whitesmoke;
 
   & ul li {
     display: flex;

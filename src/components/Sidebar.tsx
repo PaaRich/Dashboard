@@ -17,7 +17,7 @@ const Sidebar = () => {
       <div className="max-w-[90%] mx-auto text-left lg:py-6 h-full flex flex-col justify-between ">
         <div>
           {/* profile */}
-          <div className="border-b-4 pb-3">
+          <div className="border-b-2 pb-3">
             <div className="flex items-center gap-x-2">
               <img
                 className="w-16 rounded-full shadow-sm"
@@ -89,7 +89,7 @@ const Sidebar = () => {
                   Reports
                 </NavLink>
               </li>
-              <li className="mb-4 border-t-4">
+              <li className="mb-4 border-t-2">
                 <NavLink
                   to="/settings"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -112,7 +112,7 @@ const Sidebar = () => {
         </div>
 
         {/* logout */}
-        <div className=" pt-2 cursor-pointer border-t-2 flex items-center justify-center">
+        <div className=" py-2 cursor-pointer border-t-2 flex items-center justify-center hover:bg-slate-100 duration-500">
           <MdLogout className="mr-2" size={25} />
           Log Out
         </div>
