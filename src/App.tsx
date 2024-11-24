@@ -7,6 +7,7 @@ import Settings from "./pages/Settings";
 import Research from "./pages/Research";
 import Report from "./pages/Report";
 import Team from "./pages/Team";
+import Help from "./pages/Help";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="research" element={<Research />} />
           <Route path="report" element={<Report />} />
           <Route path="team" element={<Team />} />
+          <Route path="help" element={<Help />} />
         </Route>
       </Routes>
     </>
