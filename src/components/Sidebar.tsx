@@ -9,15 +9,16 @@ import { GiArchiveResearch } from "react-icons/gi";
 import { TbReport } from "react-icons/tb";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdLiveHelp, MdLogout } from "react-icons/md";
+import ThemeToggle from "./ThemeToggle";
 //import { MdLogout } from "react-icons/md";
 
 const Sidebar = () => {
   return (
     <SidebarWrapper>
-      <div className="max-w-[90%] mx-auto text-left lg:py-6 h-full flex flex-col justify-between ">
+      <div className="max-w-[90%] mx-auto text-left h-dvh flex flex-col justify-between">
         <div>
           {/* profile */}
-          <div className="border-b-2 pb-3">
+          <div className="border-b-2 py-3">
             <div className="flex items-center gap-x-2">
               <img
                 className="w-16 rounded-full shadow-sm"
@@ -33,9 +34,9 @@ const Sidebar = () => {
             </div>
           </div>
           {/* nav */}
-          <div className="py-4 text-xl overflow-y-auto overflow-x-hidden">
+          <div className="pt-2 text-xl overflow-y-auto overflow-x-hidden">
             <ul>
-              <li className="mb-4">
+              <li>
                 <NavLink
                   to="/"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -44,7 +45,7 @@ const Sidebar = () => {
                   Dashboard
                 </NavLink>
               </li>
-              <li className="mb-4">
+              <li>
                 <NavLink
                   to="/projects"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -53,7 +54,7 @@ const Sidebar = () => {
                   Projects
                 </NavLink>
               </li>
-              <li className="mb-4">
+              <li>
                 <NavLink
                   to="/transactions"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -62,7 +63,7 @@ const Sidebar = () => {
                   Transactions
                 </NavLink>
               </li>
-              <li className="mb-4">
+              <li>
                 <NavLink
                   to="/team"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -71,7 +72,7 @@ const Sidebar = () => {
                   My Team
                 </NavLink>
               </li>
-              <li className="mb-4">
+              <li>
                 <NavLink
                   to="/research"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -80,7 +81,7 @@ const Sidebar = () => {
                   Research Data
                 </NavLink>
               </li>
-              <li className="mb-8">
+              <li>
                 <NavLink
                   to="/report"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -89,7 +90,7 @@ const Sidebar = () => {
                   Reports
                 </NavLink>
               </li>
-              <li className="mb-4 border-t-2">
+              <li className="border-t-2">
                 <NavLink
                   to="/settings"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -98,7 +99,7 @@ const Sidebar = () => {
                   Settings
                 </NavLink>
               </li>
-              <li className="mb-4">
+              <li>
                 <NavLink
                   to="/help"
                   className="w-full tracking-wider p-2 rounded-md inline-flex items-center"
@@ -109,10 +110,14 @@ const Sidebar = () => {
               </li>
             </ul>
           </div>
+          {/* theme */}
+          <div className="md:hidden pb-2">
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* logout */}
-        <div className=" py-2 cursor-pointer border-t-2 flex items-center justify-center hover:bg-slate-100 duration-500">
+        <div className=" py-2 cursor-pointer border-t-2 flex items-center justify-center hover:bg-slate-100 duration-500 text-lg">
           <MdLogout className="mr-2" size={25} />
           Log Out
         </div>
