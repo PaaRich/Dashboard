@@ -1,4 +1,4 @@
 import styled from "styled-components";
 export const NavbarWrapper = styled.div`
-  background-color: #cdcdf454;
+  background-color: #ededed;
 `;
