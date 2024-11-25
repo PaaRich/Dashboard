@@ -1,6 +1,6 @@
 import { FaProjectDiagram } from "react-icons/fa";
 import { HomeWrapper } from "../styles/HomeWrapper";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Chart } from "chart.js";
 import { CategoryScale } from "chart.js";
 import BarChart from "../Reuseable/BarChart";
@@ -48,6 +48,7 @@ const Home = () => {
     },
   ];
 
+  const navigate = useNavigate();
   return (
     <HomeWrapper>
       <div className="max-w-[95%] mx-auto flex gap-x-4">
@@ -158,7 +159,18 @@ const Home = () => {
               </thead>
               <tbody>
                 {transactionDetail.map((one) => (
-                  <tr className="border-y-2 font-semibold">
+                  <tr
+                    className="border-y-2 font-semibold cursor-pointer"
+                    onClick={() =>
+                      navigate(
+                        `transactions`
+                        //the below is data that's passed down
+                        //   {
+                        //   state: complain,
+                        // }
+                      )
+                    }
+                  >
                     <td className="flex items-center py-2">
                       <img
                         src={ProfileImg}
