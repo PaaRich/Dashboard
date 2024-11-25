@@ -1,7 +1,53 @@
 import { FaProjectDiagram } from "react-icons/fa";
 import { HomeWrapper } from "../styles/HomeWrapper";
 import { Link } from "react-router-dom";
+import { Chart } from "chart.js";
+import { CategoryScale } from "chart.js";
+import BarChart from "../Reuseable/BarChart";
+import { data, smallData } from "../Reuseable/utils";
+import ProfileImg from "../assets/ProfileImg.jpeg";
+
+Chart.register(CategoryScale);
+
+interface Transaction {
+  name: string;
+  status: string;
+  date: string;
+  amount: number;
+}
+
 const Home = () => {
+  const transactionDetail: Transaction[] = [
+    {
+      //img
+      name: "Robert Carter",
+      status: "Pending",
+      date: "June 14,2024",
+      amount: 556,
+    },
+    {
+      //img
+      name: "Donald McKenna",
+      status: "Done",
+      date: "August 14,2024",
+      amount: 500,
+    },
+    {
+      //img
+      name: "John Therry",
+      status: "Done",
+      date: "May 14,2023",
+      amount: 486,
+    },
+    {
+      //img
+      name: "Henry Jones",
+      status: "Pending",
+      date: "April 24,2023",
+      amount: 685,
+    },
+  ];
+
   return (
     <HomeWrapper>
       <div className="max-w-[95%] mx-auto flex gap-x-4">
@@ -63,7 +109,7 @@ const Home = () => {
             </Link>
           </div>
           {/* chart */}
-          <div className="bg-white w-full rounded-lg">
+          <div className="bg-white w-full rounded-lg shadow-md">
             <div className="flex items-center justify-between px-4 py-3">
               <h2 className="font-semibold text-xl">Revenue Chart</h2>
               <form action="">
@@ -80,6 +126,73 @@ const Home = () => {
                 </select>
               </form>
             </div>
+            {/* barChart */}
+            <div className="w-[80%] mx-auto">
+              <BarChart chartData={data} />
+            </div>
+          </div>
+          {/* transactions */}
+          <div className="p-4 bg-white rounded-lg mt-4 shadow-md">
+            {/* heading */}
+            <div className="flex items-center justify-between mb-4">
+              <p className="font-semibold text-lg">Transactions</p>
+              <form action="">
+                <select name="" id="" className="p-1 rounded border-2">
+                  <option value="" selected disabled>
+                    All data
+                  </option>
+                  <option value="pending">Pending</option>
+                  <option value="done">Done</option>
+                </select>
+              </form>
+            </div>
+            {/* table */}
+            <table className="w-full">
+              <thead>
+                <tr className="font-semibold">
+                  <td>Name</td>
+                  <td className="text-center">Status</td>
+                  <td className="text-center">Date</td>
+                  <td className="text-center">Amount</td>
+                </tr>
+              </thead>
+              <tbody>
+                {transactionDetail.map((one) => (
+                  <tr className="border-y-2 font-semibold">
+                    <td className="flex items-center py-2">
+                      <img
+                        src={ProfileImg}
+                        className="w-[30px] rounded-full mr-2 block object-cover"
+                        loading="lazy"
+                        alt=""
+                      />
+                      <span>{one.name}</span>
+                    </td>
+                    <td>
+                      {one.status == "Pending" ? (
+                        <p className="bg-[whitesmoke] rounded-full text-red-500 py-1 text-center">
+                          {one.status}
+                        </p>
+                      ) : (
+                        <p className="bg-[whitesmoke] rounded-full text-green-500 py-1 text-center">
+                          {one.status}
+                        </p>
+                      )}
+                    </td>
+                    <td>
+                      <p className="text-center">{one.date}</p>
+                    </td>
+                    <td>
+                      {one.amount >= 500 ? (
+                        <p className="text-center text-green-500">{`+$ ${one.amount}.00`}</p>
+                      ) : (
+                        <p className="text-center text-red-500">{`-$ ${one.amount}.00`}</p>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -113,8 +226,10 @@ const Home = () => {
             to="team"
             className="bg-white rounded-xl shadow-md p-4 block group hover:bg-blue-500 duration-300 mb-4"
           >
-            <p className="text-xs font-semibold">Meeting</p>
-            <h3 className="text-lg font-semibold leading-tight mt-2">
+            <p className="text-xs font-semibold group-hover:text-white">
+              Meeting
+            </p>
+            <h3 className="text-lg font-semibold leading-tight mt-2 group-hover:text-white">
               Upcoming Events Planning Discussion
             </h3>
             <p className="text-xs group-hover:text-white my-2">
@@ -133,50 +248,16 @@ const Home = () => {
             </button>
           </Link>
           <Link
-            to="team"
-            className="bg-white rounded-xl shadow-md p-4 block group hover:bg-blue-500 duration-300 mb-4"
+            to="projects"
+            className="bg-white rounded-xl shadow-md p-4 block  mb-4"
           >
-            <p className="text-xs font-semibold">Meeting</p>
-            <h3 className="text-lg font-semibold leading-tight mt-2">
-              Upcoming Events Planning Discussion
-            </h3>
-            <p className="text-xs group-hover:text-white my-2">
-              Oxish is built for every user of your project team to plan,manage
-            </p>
-            <div className="flex items-center gap-x-2 text-sm my-2">
-              <span className="bg-gray-50 px-1 rounded-full shadow-sm">
-                16th Oct
-              </span>
-              <span className="bg-gray-50 px-1 rounded-full shadow-sm">
-                11:00 - 12:00
-              </span>
+            <div className="mb-2">
+              <p className="font-semibold">Team Performance</p>
+              <p className="text-slate-500 text-sm">last 4 months</p>
             </div>
-            <button className="bg-gray-50 w-full mx-auto rounded-full shadow-sm">
-              Meeting Zoom Link
-            </button>
-          </Link>
-          <Link
-            to="team"
-            className="bg-white rounded-xl shadow-md p-4 block group hover:bg-blue-500 duration-300 mb-4"
-          >
-            <p className="text-xs font-semibold">Meeting</p>
-            <h3 className="text-lg font-semibold leading-tight mt-2">
-              Upcoming Events Planning Discussion
-            </h3>
-            <p className="text-xs group-hover:text-white my-2">
-              Oxish is built for every user of your project team to plan,manage
-            </p>
-            <div className="flex items-center gap-x-2 text-sm my-2">
-              <span className="bg-gray-50 px-1 rounded-full shadow-sm">
-                16th Oct
-              </span>
-              <span className="bg-gray-50 px-1 rounded-full shadow-sm">
-                11:00 - 12:00
-              </span>
+            <div className="w-[200px]">
+              <BarChart chartData={smallData} />
             </div>
-            <button className="bg-gray-50 w-full mx-auto rounded-full shadow-sm">
-              Meeting Zoom Link
-            </button>
           </Link>
         </div>
       </div>
