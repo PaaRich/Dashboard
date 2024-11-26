@@ -1,27 +1,41 @@
 import ProfileImg from "../assets/ProfileImg.jpeg"
-const Project=()=>{
+import {Link} from 'react-router-dom'
+import { useParams } from "react-router-dom"
+//import ProjectDetail from "../pages/ProjectDetail"
+import { ProjectDetailProp } from "../types"
+
+
+const Project=({name,description,date,rocall}:ProjectDetailProp)=>{
+
+    const {id}=useParams();
+
     return (
-        <div className="w-[300px] shadow-lg rounded-xl p-4">
+        <Link to="/projects/project" className="w-[300px] shadow-xl rounded-xl p-4 bg-white hover:bg-blue-500 hover:text-white duration-300 block">
             <div className="flex gap-x-2 justify-between">
-                <div className="w-1/3 rounded-xl">
-                    <img className="w-full h-auto object-contain" src={ProfileImg} alt="img" />
+                <div className="w-1/3">
+                    <img className="w-full h-auto object-contain rounded-xl" src={ProfileImg} alt="img" />
                 </div>
                 <div className="w-2/3 flex flex-col items-start justify-between py-2">
-                    <h3 className="font-semibold">Lorem ipsum dolor sit amet.</h3>
+                <div>
+                    <h3 className="font-semibold">{name}</h3>
+                </div>
+                    
                     <div className="relative flex">
-                        <img src={ProfileImg} alt="Image 1" className="w-5 z-10"/>
-                        <img src={ProfileImg} alt="Image 2" className="w-5 z-20"/>
-                        <img src={ProfileImg} alt="Image 3" className="w-5 z-30"/>
-                       
+                        {/* {team.map((img)=>(
+                            <img src={img} alt="Image 1" className="w-5 z-10 rounded-full"/>
+                        ))} */}
+                         <img src={ProfileImg} alt="Image 1" className="w-5 z-10 rounded-full"/>
+                         <img src={ProfileImg} alt="Image 1" className="w-5 z-10 rounded-full"/>
+                         <img src={ProfileImg} alt="Image 1" className="w-5 z-10 rounded-full"/>
                     </div>
                 </div>
             </div>
-            <p className="text-slate-500 text-sm py-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, labore.</p>
-            <div className="border-t-2 border-dashed flex items-center justify-between">
-                <div>Casting</div>
-                <div>Date</div>
+            <p className="text-slate-500 text-sm py-2">{description}</p>
+            <div className="border-t-2 border-dashed flex items-center justify-between py-2">
+                <div>{rocall}</div>
+                <div>{date}</div>
             </div>
-        </div>
+        </Link>
     )
 }
 export default Project;
