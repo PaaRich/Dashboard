@@ -1,7 +1,30 @@
 import Project from "../components/Project"
+import FileInput from "../components/FileInput";
+
 const Projects = () => {
   return <div className="max-w-[95%] mx-auto py-5">
-    <Project/>
+    <div className="grid grid-cols-3 gap-4">
+    <FileInput/>
+    <Project 
+      name="Lorem, ipsum dolor." 
+      description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, commodi!"
+      date="11/12/2020"
+      rocall="3"
+      />
+      <Project 
+      name="Lorem, ipsum dolor." 
+      description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, commodi!"
+      date="11/12/2020"
+      rocall="3"
+      />
+      <Project 
+      name="Lorem, ipsum dolor." 
+      description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, commodi!"
+      date="11/12/2020"
+      rocall="3"
+      />
+    </div>
+    
   </div>;
 };
 
