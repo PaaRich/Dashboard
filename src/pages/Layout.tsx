@@ -4,7 +4,9 @@ import Navbar from "../components/Navbar";
 import { Context } from "../Context/Context";
 import { useContext } from "react";
 import { IoClose } from "react-icons/io5";
+
 //import { LayoutWrapper } from "../styles/LayoutWrapper";
+
 
 const Layout = () => {
   const { isOpen, setIsOpen } = useContext(Context);
@@ -27,8 +29,7 @@ const Layout = () => {
         <div className="shadow lg:fixed lg:right-0 lg:w-4/5 z-40 lg:h-[68px]">
           <Navbar />
         </div>
-
-        <div className="lg:absolute lg:right-0 lg:w-4/5 lg:top-[68px]">
+        <div className="lg:absolute lg:right-0 lg:w-4/5 lg:top-[68px] bg-[#ededed]">
           <Outlet />
         </div>
       </div>

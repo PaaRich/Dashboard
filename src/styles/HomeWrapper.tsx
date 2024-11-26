@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const HomeWrapper = styled.section`
-  background-color: #ededed;
   padding: 1rem 0;
 
   .c-cards {
