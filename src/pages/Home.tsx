@@ -6,15 +6,9 @@ import { CategoryScale } from "chart.js";
 import BarChart from "../Reuseable/BarChart";
 import { data, smallData } from "../Reuseable/utils";
 import ProfileImg from "../assets/ProfileImg.jpeg";
+import { Transaction } from "../types";
 
 Chart.register(CategoryScale);
-
-interface Transaction {
-  name: string;
-  status: string;
-  date: string;
-  amount: number;
-}
 
 const Home = () => {
   const transactionDetail: Transaction[] = [
