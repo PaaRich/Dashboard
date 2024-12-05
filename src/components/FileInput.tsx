@@ -18,8 +18,10 @@ const FileInput = () => {
         htmlFor="file-input"
         className="mb-4 text-lg font-semibold text-gray-700"
       >
-        <span className="flex items-center gap-x-2">Upload a file
-        <FaPlus/></span>
+        <span className="flex items-center gap-x-2">
+          Upload a file
+          <FaPlus />
+        </span>
       </label>
       <input
         type="file"
@@ -29,7 +31,9 @@ const FileInput = () => {
       />
       {file && (
         <div className="mt-4 text-center text-gray-600">
-          <p>Selected File: <span className="font-semibold">{file.name}</span></p>
+          <p>
+            Selected File: <span className="font-semibold">{file.name}</span>
+          </p>
         </div>
       )}
     </div>
